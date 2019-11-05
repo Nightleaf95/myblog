@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form表单</title>
+    <style>
+        .error {
+            color: red
+        }
+    </style>
+</head>
+<body>
+
+<h2>填写表单信息</h2>
+<span class="error">* 为必需字段</span>
+<form action="form.php" method="post">
+    <div>姓名：<input type="text" name="name"><span class="error">*</span></div>
+    <div>邮箱：<input type="text" name="email"><span class="error">*</span></div>
+    <div>网址：<input type="text" name="website"></div>
+    <div>备注：<textarea name="remark" cols="30" rows="10"></textarea></div>
+    <div>
+        性别：<input type="radio" name="gender" value="male"><span>男</span>
+        <input type="radio" name="gender" value="female"><span>女</span>
+        <span class="error">*</span>
+    </div>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
