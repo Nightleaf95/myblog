@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class User extends CI_Controller {
 
     public function login()
@@ -19,9 +18,10 @@ class User extends CI_Controller {
 
         $this->load->model('user_model');
         $user = $this->user_model->get_email_and_pwd($email, $password);
+
         if ($user) {
             header('Content-Type:application/json; charset=utf-8');
-            $arr = array('code'=>200,'status'=>'success');
+            $arr = array('code'=>200,'status'=>'success', 'userdata'=>$user);
             exit(json_encode($arr));
         } else {
             header('Content-Type:application/json; charset=utf-8');

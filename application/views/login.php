@@ -108,7 +108,9 @@
 
 </div>
 <script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquerySession.js"></script>
 <script>
+    $.session.clear();
     $("#email").blur(function() {
         if (this.value == '') {
             $("#email_tip").text("电子邮箱不能为空");
@@ -181,6 +183,7 @@
             }, function(data) {
                 if (data.status == 'success') {
                     console.log('登陆成功!');
+                    $.session.set('userdata', JSON.stringify(data.userdata));
                     window.location.href = 'index.php/admin/blog_index';
                 } else {
                     alert('登陆失败!');

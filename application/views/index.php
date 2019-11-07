@@ -10,6 +10,21 @@
     <title>YeKaiQi's blog</title>
 </head>
 <body>
-    <h1>博客主页</h1>
+<h1><span id="username"></span>的博客主页</h1>
+<input type="button" value="设置分类" id="set_blog_type">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquerySession.js"></script>
+<script>
+    var userdata;
+    if ($.session.get('userdata')) {
+        userdata = JSON.parse($.session.get('userdata'));
+    } else {
+        window.location.href = 'index.php/user/login';
+    }
+    $("#username").text(userdata.username);
+    $("#set_blog_type").on('click', function(){
+        window.location.href = 'index.php/admin/blog_type';
+    })
+</script>
 </body>
 </html>
